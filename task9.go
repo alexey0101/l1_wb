@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func arrayReader(arr []int) <-chan int {
+func arrayReader(arr []int) <-chan int { // function that reads array and returns channel with values
 	dataChannel := make(chan int)
 	go func() {
 		for _, val := range arr {
@@ -13,7 +13,7 @@ func arrayReader(arr []int) <-chan int {
 	return dataChannel
 }
 
-func squareNumbers(dataChannel <-chan int) <-chan int {
+func squareNumbers(dataChannel <-chan int) <-chan int { // function that reads int's from channel and returns channel with squares
 	squareChannel := make(chan int)
 	go func() {
 		for val := range dataChannel {
@@ -25,7 +25,7 @@ func squareNumbers(dataChannel <-chan int) <-chan int {
 	return squareChannel
 }
 
-func print(squareChannel <-chan int) {
+func print(squareChannel <-chan int) { // function that prints values from square channel
 	for val := range squareChannel {
 		fmt.Println(val)
 	}

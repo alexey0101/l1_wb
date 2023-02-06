@@ -12,16 +12,16 @@ type Set struct {
 func NewSet(values []int) *Set {
 	valuesMap := map[int]struct{}{}
 	for _, val := range values {
-		valuesMap[val] = struct{}{}
+		valuesMap[val] = struct{}{} // fill values
 	}
 	return &Set{valuesMap}
 }
 
-func (baseSet *Set) Intersection(set *Set) *Set {
+func (baseSet *Set) Intersection(set *Set) *Set { // intersection of two sets
 	values := []int{}
 
 	var iterateSet, biggestSet *Set
-	if len(baseSet.values) < len(set.values) {
+	if len(baseSet.values) < len(set.values) { // choose set with less values
 		iterateSet = baseSet
 		biggestSet = set
 	} else {
@@ -29,16 +29,16 @@ func (baseSet *Set) Intersection(set *Set) *Set {
 		biggestSet = baseSet
 	}
 
-	for key, _ := range iterateSet.values {
-		if _, ok := biggestSet.values[key]; ok {
-			values = append(values, key)
+	for key, _ := range iterateSet.values { // iterate over set with less values
+		if _, ok := biggestSet.values[key]; ok { // check if value exists in another set
+			values = append(values, key) // add value to result set
 		}
 	}
 
 	return NewSet(values)
 }
 
-func (set *Set) String() string {
+func (set *Set) String() string { // print set
 	var b strings.Builder
 	for key, _ := range set.values {
 		fmt.Fprintf(&b, "%d ", key)

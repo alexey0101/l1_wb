@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func sleep(duration time.Duration) {
+func sleep(duration time.Duration) { // sleep function
 	<-time.After(duration)
 }
 

@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func split(data []float64, step int64) map[int64][]float64 {
+func split(data []float64, step int64) map[int64][]float64 { // split data by step
 	groups := map[int64][]float64{}
 
 	for _, val := range data {

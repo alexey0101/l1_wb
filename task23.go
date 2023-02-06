@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func deleteElement(slice []int, idx int) []int {
+func deleteElement(slice []int, idx int) []int { //delete element from slice by index
 	return append(slice[:idx], slice[idx+1:]...)
 }
 

@@ -2,16 +2,16 @@ package main
 
 import "fmt"
 
-func quicksort(arr []int, l, r int) {
-	if l < r {
-		mid := arr[(l+r)/2]
+func quicksort(arr []int, l, r int) { //quick sort
+	if l < r { //if left index less than right index
+		mid := arr[(l+r)/2] //mid value
 		i := l
 		j := r
-		for i < j {
-			for arr[i] < mid {
+		for i < j { //while left index less than right index
+			for arr[i] < mid { //if value less than mid value, then increase left index
 				i++
 			}
-			for arr[j] > mid {
+			for arr[j] > mid { //if value more than mid value, then decrease right index
 				j--
 			}
 			if i < j {
@@ -20,8 +20,8 @@ func quicksort(arr []int, l, r int) {
 				j--
 			}
 		}
-		quicksort(arr, l, j)
-		quicksort(arr, j+1, r)
+		quicksort(arr, l, j)   // call quicksort for left part
+		quicksort(arr, j+1, r) // call quicksort for right part
 	}
 }
 

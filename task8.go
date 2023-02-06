@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func setBit(value *int64, num int, bit bool) {
+func setBit(value *int64, num int, bit bool) { //set bit in value by num position
 	var rotatedBit int64
 	rotatedBit = 1 << num
 
